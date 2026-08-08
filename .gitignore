@@ -1,0 +1,19 @@
+# dependências e build
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+
+# ambiente
+.env
+.env.local
+.env*.local
+
+# editor e SO
+.DS_Store
+Thumbs.db
+
+# ferramentas locais, não fazem parte do projeto
+.claude/
+.playwright-mcp/
