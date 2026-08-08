@@ -10,9 +10,8 @@ import { HeroMarquee } from "@/components/sections/hero-marquee";
 
 gsap.registerPlugin(useGSAP);
 
-const CHIPS = ["22/08/2026", "9h30 às 12h30", "Rua Serra de Bragança, 1814"];
-const TITLE =
-  "O inimigo que mais trava o crescimento da sua empresa não aparece em nenhuma planilha.";
+const CHIPS = ["22/08/2026", "9h00 às 12h30", "Rua Serra de Bragança, 1814"];
+const TITLE = "O Inimigo Invisível do Crescimento";
 
 /**
  * Hero nível 3: o "uau" vem de tipografia grande + luz ambiente em CSS puro
@@ -93,7 +92,7 @@ export function HeroSection() {
 
         <h1
           ref={titleRef}
-          className="max-w-4xl text-balance font-display text-[2rem] uppercase leading-[1.04] tracking-tight text-brand-white sm:text-6xl md:text-8xl"
+          className="max-w-4xl text-balance font-display text-[2.75rem] uppercase leading-[1.02] tracking-tight text-brand-white sm:text-7xl md:text-8xl lg:text-9xl"
         >
           {TITLE.split(" ").map((word, i) => (
             <span key={`${word}-${i}`} data-word className="mr-[0.28em] inline-block">
@@ -104,12 +103,10 @@ export function HeroSection() {
 
         <p
           ref={subRef}
-          className="max-w-2xl text-sm leading-relaxed text-brand-white/70 md:text-lg"
+          className="max-w-xl text-balance text-base leading-relaxed text-brand-white/70 md:text-xl"
         >
-          Saúde mental negligenciada, cultura tóxica e a NR-1 aplicada errado
-          custam caro e ficam invisíveis até virar processo trabalhista ou
-          time esgotado. Em uma manhã, você aprende a transformar isso em
-          proteção jurídica e vantagem competitiva.
+          O que trava seus resultados pode não estar no mercado. Pode estar
+          dentro de você.
         </p>
 
         <ul

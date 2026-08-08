@@ -7,6 +7,7 @@ import { MagneticCta } from "@/components/ui/magnetic-cta";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { LightBeams } from "@/components/sections/light-beams";
 import { HeroTitle } from "@/components/sections/hero-title";
+import { HeroSubtitle } from "@/components/sections/hero-subtitle";
 import { Marquee } from "@/components/ui/marquee";
 import { useIsMobile, usePrefersReducedMotion } from "@/lib/use-media-query";
 import flyer from "@/public/evento-flyer.jpg";
@@ -17,15 +18,16 @@ const HeroScene = dynamic(
   { ssr: false },
 );
 
-const chips = ["22/08/2026", "9h30 às 12h30", "Rua Serra de Bragança, 1814"];
+// Horario confirmado pelo cliente em 08/08: 9h00 as 12h30 (corrige o 9h30 do flyer)
+const chips = ["22/08/2026", "9h00 às 12h30", "Rua Serra de Bragança, 1814"];
 
 const keywords = [
-  "NR-1",
-  "SAÚDE MENTAL CORPORATIVA",
-  "CULTURA TÓXICA",
-  "PASSIVO TRABALHISTA",
-  "PRODUTIVIDADE",
-  "CRESCIMENTO",
+  "BLOQUEIOS INVISÍVEIS",
+  "MENTALIDADE DE LIDERANÇA",
+  "PRÓXIMO NÍVEL",
+  "EVOLUÇÃO PESSOAL",
+  "DECISÕES",
+  "CRESCIMENTO SUSTENTÁVEL",
 ];
 
 export function Hero() {
@@ -63,15 +65,7 @@ export function Hero() {
 
           <HeroTitle />
 
-          <p className="max-w-xl text-balance text-[0.85rem] leading-relaxed text-white/70 sm:text-base md:text-lg">
-            Saúde mental negligenciada, cultura tóxica e a NR-1 aplicada errado
-            custam caro e ficam invisíveis até virar processo trabalhista ou
-            time esgotado. Em uma manhã, você aprende a transformar isso em{" "}
-            <strong className="font-semibold text-brand-red">
-              proteção jurídica e vantagem competitiva
-            </strong>
-            .
-          </p>
+          <HeroSubtitle />
 
           <div className="flex flex-wrap items-center gap-1.5 sm:gap-3">
             {chips.map((chip) => (
@@ -89,18 +83,13 @@ export function Hero() {
             Garantir minha vaga
           </MagneticCta>
 
-          {/* TODO: cliente confirmar nome e bio completa dos dois palestrantes antes de publicar */}
-          <div className="mt-1 hidden flex-col gap-2 text-[11px] text-white/50 sm:mt-2 sm:flex sm:flex-row sm:gap-4">
-            <span>
-              <strong className="text-white/80">[NOME PALESTRANTE 1]</strong> ·
-              especialista em saúde mental corporativa e NR-1
+          {/* TODO: cliente confirmar nome, cargo e bio completa dos dois palestrantes antes de publicar */}
+          <div className="mt-1 hidden items-center gap-3 text-[11px] text-white/50 sm:mt-2 sm:flex">
+            <span className="text-white/80">[NOME PALESTRANTE 1]</span>
+            <span aria-hidden className="text-brand-red/60">
+              ·
             </span>
-            <span>
-              <strong className="text-white/80">
-                [NOME PALESTRANTE 2 · WAGNER]
-              </strong>{" "}
-              · host condutor do Empreende Zona Leste
-            </span>
+            <span className="text-white/80">[NOME PALESTRANTE 2 · WAGNER]</span>
           </div>
         </div>
 

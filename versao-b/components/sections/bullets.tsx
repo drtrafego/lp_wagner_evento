@@ -6,23 +6,22 @@ import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 const bullets = [
   {
     numero: "01",
-    texto:
-      "Entenda o que a atualização da NR-1 exige de verdade, sem o medo e a desinformação que circulam por aí",
+    texto: "O que precisa mudar em você para que o seu negócio cresça de forma sustentável?",
   },
   {
     numero: "02",
     texto:
-      "Descubra o risco que o empresário normalmente não enxerga, e que custa caro quando vira processo",
+      "Como emoções silenciosas influenciam suas decisões, seu posicionamento e seus resultados?",
   },
   {
     numero: "03",
     texto:
-      "Saiba a diferença entre cumprir a norma no papel e proteger a empresa de verdade",
+      "Quais são os cinco principais inimigos invisíveis que podem impedir você de alcançar o próximo nível?",
   },
   {
     numero: "04",
     texto:
-      "Saia com o primeiro passo prático pra aplicar essa semana, sem depender de consultoria cara",
+      "Por que alguns empreendedores crescem rapidamente enquanto outros permanecem presos aos mesmos desafios?",
   },
 ];
 
@@ -37,7 +36,7 @@ export function Bullets() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="font-heading max-w-2xl text-balance text-2xl uppercase leading-[1.1] tracking-tight text-brand-white sm:text-4xl md:text-5xl"
         >
-          O que você leva do evento
+          Nesta experiência você vai descobrir...
         </motion.h2>
 
         <div className="mt-10 grid grid-cols-1 gap-5 sm:mt-14 sm:grid-cols-2 sm:gap-6">
@@ -67,6 +66,17 @@ export function Bullets() {
             </motion.div>
           ))}
         </div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.5 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mt-10 max-w-2xl text-balance text-base italic leading-relaxed text-white/60 sm:mt-14 sm:text-lg"
+        >
+          Mais do que respostas, você encontrará novas perguntas. E são elas que abrem
+          para uma nova forma de empreender.
+        </motion.p>
       </div>
     </section>
   );

@@ -7,9 +7,17 @@ import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const corpo =
-  "Turnover alto, afastamento por ansiedade e burnout, queda de produtividade que ninguém sabe explicar, e agora um risco jurídico novo: a NR-1 exige gestão de riscos psicossociais, e empresa que trata isso como formalidade está exposta. Nenhum desses custos aparece separado no DRE, mas juntos eles travam o crescimento.";
+const paragrafos = [
+  "Você trabalha mais do que nunca. Assume riscos diariamente. Resolve problemas o tempo todo. Cuida da equipe, do financeiro, dos clientes e da operação. Mesmo assim, sente que o seu negócio não cresce na velocidade que poderia.",
+  "A verdade é que o maior obstáculo para o crescimento da sua empresa pode não estar na economia, na concorrência ou na falta de oportunidades. Pode estar na forma como você pensa, decide, reage e lidera.",
+  "É por isso que muitos empreendedores trabalham mais, estudam mais e investem mais..., mas continuam presos aos mesmos resultados. A maioria dos empreendedores investe em marketing, vendas, gestão e processos. Tudo isso é importante, mas existe uma pergunta que poucos têm coragem de fazer:",
+];
 
+/**
+ * Reveal em 3 estagios (um por paragrafo) enquanto a secao fica pinada,
+ * ritmo de leitura guiado pelo scroll. Sem titulo proprio: o primeiro
+ * paragrafo, maior, funciona como a entrada visual da secao.
+ */
 export function Problema() {
   const root = useRef<HTMLDivElement>(null);
 
@@ -20,34 +28,30 @@ export function Problema() {
       mm.add(
         "(min-width: 768px) and (prefers-reduced-motion: no-preference)",
         () => {
-          const words = root.current?.querySelectorAll<HTMLSpanElement>("[data-word]");
+          const blocks = gsap.utils.toArray<HTMLElement>("[data-paragrafo]", root.current);
           const scanline = root.current?.querySelector<HTMLDivElement>("[data-scanline]");
-          if (!words?.length || !scanline) return;
+          if (!blocks.length) return;
 
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: root.current,
-              start: "top top",
-              end: "+=100%",
-              scrub: 1,
-              pin: true,
+          const st = ScrollTrigger.create({
+            trigger: root.current,
+            start: "top top",
+            end: "+=140%",
+            scrub: 1,
+            pin: true,
+            onUpdate: (self) => {
+              const progress = self.progress * blocks.length;
+              blocks.forEach((block, i) => {
+                const local = gsap.utils.clamp(0, 1, progress - i * 0.85);
+                gsap.set(block, {
+                  opacity: 0.15 + local * 0.85,
+                  filter: `blur(${(1 - local) * 5}px)`,
+                });
+              });
+              if (scanline) gsap.set(scanline, { yPercent: -20 + self.progress * 140 });
             },
           });
 
-          tl.fromTo(
-            scanline,
-            { yPercent: -20, opacity: 0 },
-            { yPercent: 120, opacity: 1, ease: "none" },
-            0,
-          );
-          tl.fromTo(
-            words,
-            { opacity: 0.14, filter: "blur(5px)" },
-            { opacity: 1, filter: "blur(0px)", stagger: 0.04, ease: "none" },
-            0,
-          );
-
-          return () => tl.scrollTrigger?.kill();
+          return () => st.kill();
         },
       );
 
@@ -66,25 +70,28 @@ export function Problema() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-brand-red/25 via-brand-red/5 to-transparent opacity-0 md:opacity-100"
       />
-      <div className="mx-auto flex w-full max-w-4xl flex-col gap-6">
+      <div className="mx-auto flex w-full max-w-3xl flex-col gap-6 sm:gap-8">
         <span className="text-xs font-bold uppercase tracking-[0.22em] text-brand-red">
-          O que ninguém mostra no balancete
+          O obstáculo real
         </span>
-        <h2 className="font-heading text-balance text-3xl uppercase leading-[1.05] tracking-tight text-brand-white sm:text-4xl md:text-5xl lg:text-6xl">
-          {"Enquanto sua empresa cresce, esse inimigo cresce junto, e ele é invisível até o dia que explode."
-            .split(" ")
-            .map((word, i) => (
-              <span key={`${word}-${i}`} data-word className="mr-2.5 inline-block">
-                {word}
-              </span>
-            ))}
-        </h2>
-        <p className="max-w-2xl text-balance text-sm leading-relaxed text-white/70 sm:text-base md:text-lg">
-          {corpo.split(" ").map((word, i) => (
-            <span key={`${word}-${i}`} data-word className="mr-1.5 inline-block">
-              {word}
-            </span>
-          ))}
+
+        <p
+          data-paragrafo
+          className="text-balance text-xl font-semibold leading-snug text-brand-white sm:text-2xl md:text-3xl"
+        >
+          {paragrafos[0]}
+        </p>
+        <p
+          data-paragrafo
+          className="text-balance text-base leading-relaxed text-white/75 sm:text-lg md:text-xl"
+        >
+          {paragrafos[1]}
+        </p>
+        <p
+          data-paragrafo
+          className="text-balance text-sm leading-relaxed text-white/60 sm:text-base md:text-lg"
+        >
+          {paragrafos[2]}
         </p>
       </div>
     </section>

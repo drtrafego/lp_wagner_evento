@@ -17,3 +17,6 @@ Thumbs.db
 # ferramentas locais, não fazem parte do projeto
 .claude/
 .playwright-mcp/
+
+.vercel
+.env*

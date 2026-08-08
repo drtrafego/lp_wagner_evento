@@ -7,65 +7,118 @@ import { useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const TITLE =
-  "Enquanto sua empresa cresce, esse inimigo cresce junto, e ele é invisível até o dia que explode.";
+const PARAGRAPHS = [
+  "Você trabalha mais do que nunca. Assume riscos diariamente. Resolve problemas o tempo todo. Cuida da equipe, do financeiro, dos clientes e da operação. Mesmo assim, sente que o seu negócio não cresce na velocidade que poderia.",
+  "A verdade é que o maior obstáculo para o crescimento da sua empresa pode não estar na economia, na concorrência ou na falta de oportunidades. Pode estar na forma como você pensa, decide, reage e lidera.",
+  "É por isso que muitos empreendedores trabalham mais, estudam mais e investem mais..., mas continuam presos aos mesmos resultados. A maioria dos empreendedores investe em marketing, vendas, gestão e processos. Tudo isso é importante, mas existe uma pergunta que poucos têm coragem de fazer:",
+];
+
+const PULL_QUOTE = [
+  "Quem está conduzindo a empresa está preparado para conduzir o próximo nível do negócio?",
+  "Toda empresa carrega a mentalidade do seu líder.",
+  "Quando o empreendedor evolui, o negócio encontra espaço para crescer junto.",
+];
 
 /**
- * Título que acende palavra a palavra conforme o scroll (scrub, sem pin).
- * Some em nível reduzido (não some por completo) quando prefers-reduced-motion
- * está ativo, mantendo a leitura completa desde o primeiro frame.
+ * Parágrafo-manifesto que acende conforme o scroll (scrub, sem pin), seguido
+ * de um pull-quote em tipografia grande com o mesmo tratamento, linha a
+ * linha. Some em nível reduzido (não some por completo) quando
+ * prefers-reduced-motion está ativo.
  */
 export function ProblemSection() {
   const root = useRef<HTMLDivElement>(null);
+  const paragraphsRef = useRef<HTMLDivElement>(null);
+  const quoteRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      const words = root.current?.querySelectorAll<HTMLSpanElement>("[data-word]");
-      if (!words?.length) return;
-
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      gsap.fromTo(
-        words,
-        { opacity: reduceMotion ? 0.6 : 0.15, y: reduceMotion ? 0 : 20, filter: reduceMotion ? "blur(0px)" : "blur(5px)" },
-        {
+      const lines = paragraphsRef.current?.querySelectorAll<HTMLParagraphElement>("[data-line]");
+      const quoteLines = quoteRef.current?.querySelectorAll<HTMLParagraphElement>("[data-quote-line]");
+
+      if (reduceMotion) {
+        gsap.set([...(lines ? Array.from(lines) : []), ...(quoteLines ? Array.from(quoteLines) : [])], {
           opacity: 1,
           y: 0,
           filter: "blur(0px)",
-          stagger: reduceMotion ? 0.01 : 0.05,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: root.current,
-            start: "top 82%",
-            end: "top 38%",
-            scrub: reduceMotion ? false : true,
+        });
+        return;
+      }
+
+      if (lines?.length) {
+        gsap.fromTo(
+          lines,
+          { opacity: 0.15, y: 24, filter: "blur(5px)" },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            stagger: 0.25,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: paragraphsRef.current,
+              start: "top 85%",
+              end: "bottom 55%",
+              scrub: true,
+            },
           },
-        },
-      );
+        );
+      }
+
+      if (quoteLines?.length) {
+        gsap.fromTo(
+          quoteLines,
+          { opacity: 0.12, y: 30, filter: "blur(6px)" },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            stagger: 0.35,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: quoteRef.current,
+              start: "top 85%",
+              end: "bottom 45%",
+              scrub: true,
+            },
+          },
+        );
+      }
     },
     { scope: root },
   );
 
   return (
     <section ref={root} className="relative bg-brand-black px-6 py-24 md:py-36">
-      <div className="mx-auto flex max-w-4xl flex-col gap-6">
-        <span className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
-          O que ninguém mostra no balancete
-        </span>
-        <h2 className="text-balance font-display text-3xl uppercase leading-[1.1] tracking-tight text-brand-white md:text-5xl">
-          {TITLE.split(" ").map((word, i) => (
-            <span key={`${word}-${i}`} data-word className="mr-2.5 inline-block md:mr-3">
-              {word}
-            </span>
+      <div className="mx-auto flex max-w-4xl flex-col gap-20 md:gap-28">
+        <div ref={paragraphsRef} className="flex flex-col gap-6">
+          {PARAGRAPHS.map((paragraph, i) => (
+            <p
+              key={i}
+              data-line
+              className="max-w-3xl text-lg leading-relaxed text-brand-white/75 md:text-2xl"
+            >
+              {paragraph}
+            </p>
           ))}
-        </h2>
-        <p className="max-w-2xl text-lg leading-relaxed text-brand-white/70">
-          Turnover alto, afastamento por ansiedade e burnout, queda de
-          produtividade que ninguém sabe explicar, e agora um risco jurídico
-          novo: a NR-1 exige gestão de riscos psicossociais, e empresa que
-          trata isso como formalidade está exposta. Nenhum desses custos
-          aparece separado no DRE, mas juntos eles travam o crescimento.
-        </p>
+        </div>
+
+        <div ref={quoteRef} className="flex flex-col gap-6 border-l-2 border-brand-red/50 pl-6 md:gap-8 md:pl-10">
+          {PULL_QUOTE.map((line, i) => (
+            <p
+              key={i}
+              data-quote-line
+              className={
+                i === 0
+                  ? "text-balance font-display text-2xl uppercase leading-[1.15] tracking-tight text-brand-white md:text-4xl"
+                  : "text-balance font-display text-xl uppercase leading-[1.15] tracking-tight text-brand-red md:text-3xl"
+              }
+            >
+              {line}
+            </p>
+          ))}
+        </div>
       </div>
     </section>
   );

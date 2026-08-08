@@ -18,11 +18,11 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: "Experiência Empreende, O Inimigo Invisível do Crescimento",
   description:
-    "Saúde mental negligenciada, cultura tóxica e a NR-1 aplicada errado custam caro e ficam invisíveis até virar processo trabalhista. Evento presencial em 22/08/2026, Zona Leste de São Paulo.",
+    "O que trava seus resultados pode não estar no mercado. Pode estar dentro de você. Evento presencial em 22/08/2026, Zona Leste de São Paulo.",
   openGraph: {
     title: "Experiência Empreende, O Inimigo Invisível do Crescimento",
     description:
-      "Evento presencial, 22/08/2026, Zona Leste de São Paulo. Saúde mental corporativa, NR-1 e proteção jurídica em uma manhã.",
+      "Evento presencial, 22/08/2026, Zona Leste de São Paulo. Uma manhã sobre mentalidade de liderança e os bloqueios invisíveis que travam o próximo nível do seu negócio.",
     type: "website",
     locale: "pt_BR",
   },

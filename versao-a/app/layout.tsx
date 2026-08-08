@@ -21,11 +21,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://lp-wagner-evento.vercel.app"),
   title: "Experiência Empreende, O Inimigo Invisível do Crescimento",
   description:
-    "Evento presencial da Empreende Zona Leste sobre NR-1, saúde mental corporativa e o inimigo invisível que trava o crescimento da sua empresa. 22/08/2026, Zona Leste de São Paulo.",
+    "O maior obstáculo para o crescimento da sua empresa pode não estar no mercado. Uma manhã de desenvolvimento pessoal e mentalidade de liderança com a Empreende Zona Leste. 22/08/2026, Zona Leste de São Paulo.",
   openGraph: {
     title: "Experiência Empreende, O Inimigo Invisível do Crescimento",
     description:
-      "Evento presencial da Empreende Zona Leste sobre NR-1 e saúde mental corporativa. 22/08/2026, 9h30 às 12h30, Zona Leste de São Paulo.",
+      "O que trava seus resultados pode não estar no mercado. Pode estar dentro de você. 22/08/2026, 9h00 às 12h30, Zona Leste de São Paulo.",
     images: ["/evento-flyer.jpg"],
     locale: "pt_BR",
     type: "website",

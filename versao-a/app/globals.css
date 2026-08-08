@@ -34,6 +34,10 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
+  /* Tipografia bold grande em fundo escuro sofre franja de cor com AA de
+     subpixel em alguns motores de render, isso força AA em escala de cinza */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html.lenis,

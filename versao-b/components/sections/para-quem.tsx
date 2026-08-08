@@ -3,10 +3,10 @@
 import { motion } from "motion/react";
 
 const itens = [
-  "Toca uma empresa com equipe e sente o peso do turnover no bolso",
-  "Já ouviu falar da NR-1 mas ainda não sabe o que muda na prática",
-  "Quer transformar saúde mental de obrigação legal em estratégia de crescimento",
-  "Prefere agir antes do processo trabalhista do que remediar depois",
+  "Sente que já chegou longe, mas sabe que ainda não alcançou todo o seu potencial.",
+  "Entende que crescimento profissional e na carreira começa pela evolução pessoal.",
+  "É empresário, empreendedor, profissional liberal, líder ou gestor.",
+  "Deseja fortalecer sua mentalidade, ampliar sua visão e construir resultados mais consistentes.",
 ];
 
 export function ParaQuem() {
@@ -24,7 +24,7 @@ export function ParaQuem() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="font-heading text-balance text-2xl uppercase leading-[1.1] tracking-tight text-brand-white sm:text-4xl md:text-5xl"
         >
-          Esse evento é pra você que...
+          Esta experiência é para quem...
         </motion.h2>
 
         <ul className="mt-10 flex flex-col gap-4 sm:mt-14 sm:gap-5">

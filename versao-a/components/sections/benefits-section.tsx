@@ -3,13 +3,13 @@
 import { motion } from "motion/react";
 
 const BENEFITS = [
-  "Entenda o que a atualização da NR-1 exige de verdade, sem o medo e a desinformação que circulam por aí",
-  "Descubra o risco que o empresário normalmente não enxerga, e que custa caro quando vira processo",
-  "Saiba a diferença entre cumprir a norma no papel e proteger a empresa de verdade",
-  "Saia com o primeiro passo prático pra aplicar essa semana, sem depender de consultoria cara",
+  "O que precisa mudar em você para que o seu negócio cresça de forma sustentável?",
+  "Como emoções silenciosas influenciam suas decisões, seu posicionamento e seus resultados?",
+  "Quais são os cinco principais inimigos invisíveis que podem impedir você de alcançar o próximo nível?",
+  "Por que alguns empreendedores crescem rapidamente enquanto outros permanecem presos aos mesmos desafios?",
 ];
 
-function CheckIcon() {
+function QuestionIcon() {
   return (
     <svg
       aria-hidden
@@ -19,12 +19,13 @@ function CheckIcon() {
     >
       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.6" />
       <path
-        d="M8 12.5l2.5 2.5L16 9.5"
+        d="M9.5 9.2a2.5 2.5 0 1 1 3.7 2.2c-.9.5-1.2 1-1.2 1.9"
         stroke="currentColor"
-        strokeWidth="1.8"
+        strokeWidth="1.7"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
+      <circle cx="12" cy="16.9" r="0.9" fill="currentColor" />
     </svg>
   );
 }
@@ -35,10 +36,10 @@ export function BenefitsSection() {
       <div className="mx-auto flex max-w-5xl flex-col gap-12">
         <div className="flex flex-col gap-2">
           <span className="text-xs font-medium uppercase tracking-[0.25em] text-brand-red">
-            O que você leva do evento
+            Nesta experiência
           </span>
           <h2 className="text-balance font-display text-3xl uppercase leading-[1.1] tracking-tight text-brand-white md:text-5xl">
-            Quatro respostas que valem a manhã inteira
+            Nesta experiência você vai descobrir...
           </h2>
         </div>
 
@@ -52,11 +53,22 @@ export function BenefitsSection() {
               transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
               className="flex items-start gap-4 rounded-2xl border border-brand-gray/25 bg-brand-black/60 p-6"
             >
-              <CheckIcon />
+              <QuestionIcon />
               <p className="text-base leading-relaxed text-brand-white/85 md:text-lg">{text}</p>
             </motion.div>
           ))}
         </div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          className="max-w-2xl text-lg leading-relaxed text-brand-white/70 md:text-xl"
+        >
+          Mais do que respostas, você encontrará novas perguntas. E são elas
+          que abrem para uma nova forma de empreender.
+        </motion.p>
       </div>
     </section>
   );

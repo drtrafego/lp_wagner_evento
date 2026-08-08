@@ -1,14 +1,13 @@
 import Image from "next/image";
 import { CtaButton } from "@/components/ui/cta-button";
 
-// Itens compostos a partir dos fatos já aprovados no briefing (agenda,
-// bullets de benefício e speakers da seção 1). Nenhum item novo foi
-// inventado; confirmar com o cliente antes de publicar.
+// Itens literais da seção 3 do briefing (baseados só na agenda de 5 blocos).
+// Nenhum item novo foi inventado; confirmar com o cliente antes de publicar.
 const INCLUDED = [
-  "Acesso à manhã completa, 3 blocos de conteúdo das 9h30 às 12h30",
-  "Diagnóstico do risco que a NR-1 exige gestionar e como aplicar na prática",
-  "Condução de dois especialistas em saúde mental corporativa e cultura de empresa",
-  "Primeiro passo prático pra aplicar essa semana, sem depender de consultoria cara",
+  "Manhã completa, 5 momentos das 9h00 às 12h30",
+  "Imersão de abertura pra sair do piloto automático",
+  "Palestra vivencial sobre os bloqueios que travam o próximo nível do negócio",
+  "Momento de networking estratégico e conexões que geram negócio",
 ];
 
 export function OfferSection() {
@@ -21,7 +20,7 @@ export function OfferSection() {
               Inscrição
             </span>
             <h2 className="text-balance font-display text-3xl uppercase leading-[1.1] tracking-tight text-brand-white md:text-4xl">
-              Uma manhã pra proteger a empresa que você levou anos construindo
+              Uma manhã pra enfrentar o seu inimigo invisível
             </h2>
           </div>
 
@@ -61,8 +60,7 @@ export function OfferSection() {
             </span>
             {/* TROCAR: cliente precisa confirmar nomes e bios completas dos dois palestrantes */}
             <p className="text-sm leading-relaxed text-brand-white/75">
-              <strong className="text-brand-white">[NOME PALESTRANTE 1]</strong>, especialista em
-              saúde mental corporativa e NR-1.
+              <strong className="text-brand-white">[NOME PALESTRANTE 1]</strong>
             </p>
             <p className="text-sm leading-relaxed text-brand-white/75">
               <strong className="text-brand-white">[NOME PALESTRANTE 2 · WAGNER]</strong>,

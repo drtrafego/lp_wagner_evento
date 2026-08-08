@@ -8,12 +8,12 @@ const perguntas = [
     a: "Presencial, na Rua Serra de Bragança, 1814, Zona Leste de São Paulo.",
   },
   {
-    q: "Preciso ter uma equipe grande pra esse conteúdo fazer sentido?",
-    a: "Não, o conteúdo serve pra qualquer empresário que tem gente contratada, de times pequenos a estruturas maiores.",
+    q: "Preciso ter uma empresa grande pra esse conteúdo fazer sentido?",
+    a: "Não, é pra empresário, empreendedor, profissional liberal, líder ou gestor em qualquer estágio, o ponto de partida é você, não o tamanho da operação.",
   },
   {
-    q: "Vou sair sabendo aplicar a NR-1 na prática?",
-    a: "Sim, o evento entrega o passo a passo prático, não só teoria.",
+    q: "É uma palestra motivacional ou tem conteúdo prático?",
+    a: "É uma experiência vivencial que integra comportamento, neurociência e empreendedorismo, não é teoria solta nem só motivação.",
   },
   {
     q: "Tem certificado de participação?",

@@ -3,10 +3,10 @@
 import { motion } from "motion/react";
 
 const AUDIENCE = [
-  "Toca uma empresa com equipe e sente o peso do turnover no bolso",
-  "Já ouviu falar da NR-1 mas ainda não sabe o que muda na prática",
-  "Quer transformar saúde mental de obrigação legal em estratégia de crescimento",
-  "Prefere agir antes do processo trabalhista do que remediar depois",
+  "Sente que já chegou longe, mas sabe que ainda não alcançou todo o seu potencial.",
+  "Entende que crescimento profissional e na carreira começa pela evolução pessoal.",
+  "É empresário, empreendedor, profissional liberal, líder ou gestor.",
+  "Deseja fortalecer sua mentalidade, ampliar sua visão e construir resultados mais consistentes.",
 ];
 
 export function AudienceSection() {
@@ -14,7 +14,7 @@ export function AudienceSection() {
     <section className="relative bg-brand-black px-6 py-24 md:py-32">
       <div className="mx-auto flex max-w-4xl flex-col gap-10">
         <h2 className="text-balance font-display text-3xl uppercase leading-[1.1] tracking-tight text-brand-white md:text-5xl">
-          Esse evento é pra você que...
+          Esta experiência é para quem...
         </h2>
 
         <ul className="flex flex-col gap-5">

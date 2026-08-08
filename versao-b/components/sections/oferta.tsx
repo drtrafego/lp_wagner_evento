@@ -4,9 +4,10 @@ import { motion } from "motion/react";
 import { MagneticCta } from "@/components/ui/magnetic-cta";
 
 const incluso = [
-  "Acesso presencial aos 3 blocos da manhã: diagnóstico, NR-1 na prática e saúde mental como estratégia",
-  "O primeiro passo prático pra aplicar essa semana, sem depender de consultoria cara",
-  "Vagas limitadas pelo espaço físico do local, sem lotação além da capacidade da sala",
+  "Manhã completa, 5 momentos das 9h00 às 12h30",
+  "Imersão de abertura pra sair do piloto automático",
+  "Palestra vivencial sobre os bloqueios que travam o próximo nível do negócio",
+  "Momento de networking estratégico e conexões que geram negócio",
 ];
 
 export function Oferta() {

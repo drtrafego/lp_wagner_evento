@@ -13,7 +13,7 @@ export function FinalCtaSection() {
         </p>
         <CtaButton />
         <p className="text-sm uppercase tracking-[0.15em] text-brand-white/50">
-          22/08/2026 · 9h30 às 12h30 · Rua Serra de Bragança, 1814, Vila Formosa, Zona Leste de São Paulo
+          22/08/2026 · 9h00 às 12h30 · Rua Serra de Bragança, 1814, Vila Formosa, Zona Leste de São Paulo
         </p>
       </div>
     </section>

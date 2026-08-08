@@ -20,11 +20,12 @@ export function CtaFinal() {
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         className="relative mx-auto flex max-w-2xl flex-col items-center gap-6 text-center"
       >
-        <h2 className="font-heading text-balance text-3xl uppercase leading-[1.05] tracking-tight text-brand-white sm:text-5xl md:text-6xl">
-          As vagas são limitadas pelo espaço físico do local.
-        </h2>
-        <p className="text-balance text-base leading-relaxed text-white/75 sm:text-lg">
-          Garanta a sua antes que a turma feche.
+        <span className="text-xs font-bold uppercase tracking-[0.22em] text-brand-red">
+          Garanta sua vaga
+        </span>
+        <p className="text-balance text-xl leading-snug text-brand-white sm:text-2xl md:text-3xl">
+          As vagas são limitadas pelo espaço físico do local. Garanta a sua antes que a
+          turma feche.
         </p>
 
         {/* TROCAR: link real de inscrição do cliente */}
